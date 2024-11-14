@@ -1,56 +1,98 @@
 body {
-    background-color: var(--white);
-  }
-  
-  .hero-section {
-    margin: auto;
-    margin-top: 40px;
-    width: 85%;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    column-gap: 50px;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .intro-img {
     display: flex;
-    justify-content: end;
-  }
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: red; 
+    background-image: url("images/red-diagonal-striped-plastic-texture.jpg");
+    font-family: "Jersey 10";
+    font-size: 40px;
+
+}
+
+.arcade {
+    width: 87vw;
+    height: 98vh;
+    border-radius: 50px;
+    background-color: #222222;
+    box-shadow: 0 0 5px 2px black; /* Adds a glowing red border */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url("images/guy_karting_bg_cropped-removebg-preview.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+    background-position-y: 80%;
+}
+
+h1{
+    color:white;
+    font-family: "Jersey 10";
+    font-size: 70px;
+}
+
+.options {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-options{
+    left: 15%; /* Adjusts horizontal position within the arcade div */
+    top: 30%; /* Adjusts vertical position within the arcade div */
+}
+.options ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.options li {
   
-  .intro-img img {
-    height: 500px;
-  }
-  
-  .resp-iframe {
-    margin-top: 40px;
-    width: 613px;
-    height: 187px;
-    border: 0;
-    transform: scale(1);
-    overflow: hidden;
-  }
-  
-  @media only screen and (max-width: 1122px) {
-    .hero-section {
-      grid-template-columns: 1fr;
-      align-items: center;
-      margin-top: 60px;
-    }
-  
-    .intro-img {
-      display: block;
-      margin: auto;
-      width: 100% !important;
-      height: 300px;
-      margin-top: 30px;
-    }
-    .intro-img iframe.resp-iframe {
-      width: 100% !important;
-      height: 100% !important;
-    }
-  
-    .md-none {
-      display: none;
-    }
-  }
+    font-size: 1.5em;
+    margin: 15px 0;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.options li:hover {
+    color: green;
+    transform: scale(1.1);
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+a:hover{
+    color: green;
+    transform: scale(1.1);
+}
+
+#jouer{
+    background-image: url("images/blue_karting_guy.png");
+    background-position: left;
+    background-position-y: 65%;
+}
+
+#player-select{
+    right:15%;
+    flex-direction: row;
+    top: 30%;
+}
+
+.back {
+    position: absolute;
+    bottom: 3%; /* Adjust distance from bottom */
+    left: 15%;   /* Adjust distance from left */
+    cursor: pointer;
+    font-size: 58px;
+}
