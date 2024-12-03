@@ -186,6 +186,103 @@ a:hover{
     opacity: 1; /* Ensures it fades in smoothly */
 }
 
+.login-form {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: left;
+    padding: 30px;
+}
+
+.login-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-family: "Jersey 10";
+}
+
+.login-form-box input[type="text"],
+.login-form-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+    font-family: "Jersey 10";
+}
+
+.login-form-box input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: red;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: "Jersey 10";
+    cursor: pointer;
+}
+
+.login-form-box input[type="submit"]:hover {
+    background: darkred;
+}
+
+/* Signup Section */
+.signup-form {
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    width: 30%; 
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: left;
+}
+
+.signup-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-family: "Jersey 10";
+}
+
+.signup-form-box input[type="text"],
+.signup-form-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+    font-family: "Jersey 10";
+}
+
+.signup-form-box input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: red;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: "Jersey 10";
+    cursor: pointer;
+}
+
+.signup-form-box input[type="submit"]:hover {
+    background: darkred;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: red;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+#login-arcade{
+    background-image: none;
+}
 @keyframes textColorAnimation {
     0% {
         color: white; /* Start color */
