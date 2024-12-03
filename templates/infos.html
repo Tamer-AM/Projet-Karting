@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Faster+One&family=Handjet&family=Jersey+10&family=M+PLUS+Rounded+1c:wght@400;500&family=Montserrat:ital@1&family=Playfair+Display&display=swap" rel="stylesheet">
+    <title>Karting</title>
+</head>
+<body>
+
+    <div class="arcade">
+        <h1 class="title"> Rapberry Kart </h1>
+       
+
+        <div class="options" id="main-options">
+            <ul>
+                <li> <a>Jouer</a></li>
+                <li>Records</li>
+                <li>Infos</li>
+              </ul>
+        </div>
+        <div class="infos">
+            <a class="back2" href="{{url_for('index')}}"><- Retour </a>
+            <h1 class="infos-title"> Informations </h1>
+            <div class="infos-container">
+            <div class="infos-elem" id="auteurs">
+            <h2> Auteurs </h2>
+            
+            <ul>
+                <li class="auteurs-li">Tamer AL MASRI <span class="additional-info"> (Numéro étudiant: 21412678)</span></li> 
+                <li class="auteurs-li">Antoine RENAUD <span class="additional-info"> (Numéro étudiant: 21408429)</span></li>
+                <li class="auteurs-li">Yanis KHELOUFI <span class="additional-info"> (Numéro étudiant: 21404398)</span></li>
+            </ul>
+        </div>
+        <div class="infos-elem" id="sources">
+            <h2 class="sources"> Sources </h2>
+        </div>
+        </div>
+        </div>
+        </div>
+
+    </div>
+
+    <audio id="background-music" src="sounds/Initial D - Running In The 90s [BEST INSTRUMENTAL].mp3" autoplay loop>
+    </audio>
+</body>
+
+<script>
+window.onload = () => {
+    audio.play()
+}
+</script>
+</html>

@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
+    <link href='{{url_for("static", filename="style.css")}}' rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Faster+One&family=Handjet&family=Jersey+10&family=M+PLUS+Rounded+1c:wght@400;500&family=Montserrat:ital@1&family=Playfair+Display&display=swap" rel="stylesheet">
     <title>Karting</title>
 </head>
 <body>
+
     <div class="arcade">
-        <h1 class="title"> Rapberry Kart </h1>
-        <div id="">
+
+        <h1 class="animated-text" > Raspberry Kart </h1>
+       
+
         <div class="options" id="main-options">
             <ul>
-                <li> <a href="jouer.html">Jouer</a></li>
-                <li>Records</li>
-                <li a href="auteurs.html">Auteurs</li>
+                <li> <a href="{{url_for('jouer')}}">Jouer</a></li>
+                <li> <a href="{{url_for('jouer')}}">Records</a></li>
+                <li> <a href="{{url_for('infos')}}">Infos </a></li>
               </ul>
         </div>
 
     </div>
-    <audio id="background-music" src="sounds/Initial D - Running In The 90s [BEST INSTRUMENTAL].mp3" autoplay loop>
+
+    <audio id="background-music" src='{{url_for("static", filename="Initial D - Running In The 90s [BEST INSTRUMENTAL].mp3")}}' autoplay loop>
     </audio>
 </body>
 

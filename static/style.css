@@ -1,0 +1,247 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: red; 
+    background-image: url("images/red-diagonal-striped-plastic-texture.jpg");
+    font-family: "Jersey 10";
+    font-size: 40px;
+    color: white;
+}
+
+.arcade {
+    width: 87vw;
+    height: 98vh;
+    border-radius: 50px;
+    background-color: #222222;
+    box-shadow: 0 0 5px 1px black; /* Adds a glowing red border */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url("images/guy_karting_bg_cropped-removebg-preview.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+    background-position-y: 80%;
+    background-clip: padding-box;
+    animation: bgColorAnimation 2s infinite ease-in-out;
+}
+
+h1{
+    color:white;
+    font-family: "Jersey 10";
+    font-size: 70px;
+    animation: textColorAnimation 1s infinite ease-in-out;
+}
+
+.options {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-options{
+    left: 15%; /* Adjusts horizontal position within the arcade div */
+    top: 30%; /* Adjusts vertical position within the arcade div */
+}
+.options ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.options li {
+    animation: optionsAnimation 1s infinite ease-in-out;
+    font-size: 1.5em;
+    margin: 15px 0;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    
+}
+
+.options li:hover {
+    color: green;
+    transform: scale(1.1);
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+a:hover{
+    color: green;
+    transform: scale(1.1);
+}
+
+#jouer{
+    background-image: url("images/blue_karting_guy.png");
+    background-position: left;
+    background-position-y: 65%;
+}
+
+#player-select{
+    right:15%;
+    flex-direction: row;
+    top: 30%;
+}
+
+.back {
+    position: absolute;
+    bottom: 3%; /* Adjust distance from bottom */
+    left: 15%;   /* Adjust distance from left */
+    cursor: pointer;
+    font-size: 58px;
+}
+
+.infos {
+    position: absolute;
+    top: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: #222222;
+    opacity: 0.99;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 2;
+    overflow: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.infos h1 {
+    margin: 0 auto 20px auto; /* Centers the title horizontally */
+    text-align: center; /* Ensures the text aligns in the center */
+    margin-top: 3%;
+}
+
+.infos h2 {
+    
+    margin: 20px 0 10px 0; /* Adds space above and below the subtitles */
+    font-size:3.5rem;
+}
+
+.infos ul {
+    padding: 0;
+    margin: 0 0 0 20px; /* Aligns the list to the left with some indentation */
+    font-size:2.5rem;
+    margin-top: 10px;
+}
+
+.infos li {
+    margin-bottom: 10px; /* Adds spacing between list items */
+    text-align: left; /* Ensures left alignment */
+}
+
+.infos-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Distributes items with space between them */
+    width: 100%; /* Ensures the container spans the full width */
+}
+
+.info-elem{
+    display: flex;
+    flex-direction: column;
+}
+
+#sources{
+    margin-right:7%;
+}
+
+#auteurs{
+    margin-left:7%;
+}
+
+.back2{
+    position: absolute;
+    left: 3%;   /* Adjust distance from left */
+    cursor: pointer;
+    font-size: 58px;
+    color: #bfbfbf;
+}
+
+
+.additional-info {
+    display: none; /* Initially hides the additional info */
+    color: #ffcc00; /* Golden color for the additional info */
+    margin-left: 10px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.auteurs-li:hover{
+    color: aqua;
+    transform: scale(1.05);
+    transition: ease-in-out;
+}
+.auteurs-li:hover .additional-info {
+    display: inline; /* Makes the additional info visible */
+    opacity: 1; /* Ensures it fades in smoothly */
+}
+
+@keyframes textColorAnimation {
+    0% {
+        color: white; /* Start color */
+    }
+    50% {
+        color: #e6e6e6; /* End color */
+        text-shadow: 
+        1.5px 1.5px 0 red, /* Right-Bottom */
+        -1.5px 1.5px 0 red, /* Left-Bottom */
+        1.5px -1.5px 0 red, /* Right-Top */
+        -1.5px -1.5px 0 red, /* Left-Top */
+        0 1.5px 0 red, /* Bottom */
+        0 -1.5px 0 red, /* Top */
+        1.5px 0 0 red, /* Right */
+        -1.5px 0 0 red; /* Left */
+        transform: scale(1.001)
+    }
+    
+    100% {
+        color: white; /* End color */
+    }
+}
+
+@keyframes optionsAnimation {
+    0% {
+        color: white; /* Start color */
+        
+    }
+    50% {
+        color: #e6ffe6; /* End color */
+        text-shadow: 
+        1.5px 1.5px 0 green, /* Right-Bottom */
+        -1.5px 1.5px 0 green, /* Left-Bottom */
+        1.5px -1.5px 0 green, /* Right-Top */
+        -1.5px -1.5px 0 green, /* Left-Top */
+        0 1.5px 0 green, /* Bottom */
+        0 -1.5px 0 green, /* Top */
+        1.5px 0 0 green, /* Right */
+        -1.5px 0 0 green; /* Left */
+        transform: scale(1.01);
+        }
+
+    100% {
+        color: white;
+    }
+
+}
+
+@keyframes bgColorAnimation {
+    0% {
+        background-color: #333333; /* Start color */
+    }
+    50% {
+        background-color: #222222;; /* Midway color */
+    }
+    100% {
+        background-color: #333333; /* End color */
+}
+}

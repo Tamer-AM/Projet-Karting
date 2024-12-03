@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
+    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Faster+One&family=Handjet&family=Jersey+10&family=M+PLUS+Rounded+1c:wght@400;500&family=Montserrat:ital@1&family=Playfair+Display&display=swap" rel="stylesheet">
@@ -12,15 +12,15 @@
 <body>
     <div class="arcade" id="jouer">
         <h1 class="title"> Rapberry Kart </h1>
-        <div id="">
-        <div class="playerselect">
+        <div class="options" id="player-select">
             <ul>
-                <li> <a href="jouer.html">Jouer</a></li>
-                <li>Records</li>
-                <li a href="auteurs.html">Auteurs</li>
+                <li> 1 Joueur </li>
+                <li> 2 Joueurs </li>
               </ul>
         </div>
+        <a class="back" href="{{url_for('index')}}"><- Retour </a>
 
     </div>
+
 </body>
 </html>
