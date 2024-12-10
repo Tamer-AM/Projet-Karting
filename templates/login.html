@@ -13,11 +13,10 @@
 
     <div class="arcade" id="login-arcade">
         <h1 class="animated-text">Raspberry Kart</h1>
-    
+        <p class="error-message">{{error}}</p>
         <div class="login-form">
             <h2 class="login-title">Veuillez logger à votre compte</h2>
             <form method="POST" action="{{url_for('login')}}" class="login-form-box">
-                <p class="error-message">{{error}}</p>
                 <input type="text" name="username" autocomplete="off" placeholder="Username" required>
                 <input type="password" name="password" autocomplete="off" placeholder="Password" required>
                 <input type="submit" value="Login">

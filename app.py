@@ -1,4 +1,5 @@
 from flask import Flask, render_template, session, redirect, request, url_for
+from SQL import create_account
 
 app = Flask(__name__)
 app.secret_key = "e^31!+c1#5t)g1riwa6xq&)zt4xo5h6evpxr7r_xsu_n*r#s3f"
@@ -49,7 +50,7 @@ def signup():
             msg = "Not so easy, you need to fill the form."
         elif password != confirm:
             msg = "Passwords don't match"
-        #else:
-            #msg = create_account(username, password)
+        else:
+            msg = create_account(username, password)
 
         return render_template('login.html', error=msg)
