@@ -75,7 +75,7 @@ a{
     cursor: pointer;
 }
 
-a:hover{
+.option:hover{
     color: green;
     transform: scale(1.1);
 }

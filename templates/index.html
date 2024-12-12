@@ -14,13 +14,14 @@
     <div class="arcade">
 
         <h1 class="animated-text" > Raspberry Kart </h1>
+        <a class="logout" href="{{url_for('logout')}}">logout</a>
        
 
         <div class="options" id="main-options">
             <ul>
-                <li> <a href="{{url_for('jouer')}}">Jouer</a></li>
-                <li> <a href="{{url_for('jouer')}}">Records</a></li>
-                <li> <a href="{{url_for('infos')}}">Infos </a></li>
+                <li> <a href="{{url_for('jouer')}}" class="option">Jouer</a></li>
+                <li> <a href="{{url_for('jouer')}}" class="option">Records</a></li>
+                <li> <a href="{{url_for('infos')}}" class="option">Infos </a></li>
               </ul>
         </div>
 

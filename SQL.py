@@ -31,3 +31,16 @@ def create_account(username, password):
     sql.execute(inser_compte, (username, password))
     connection.commit()
 
+def check_account(username, password):
+    global pseudo, mdp, meilleur_temps, position
+    pseudo = username
+    mdp = password
+    connection = get_db()
+    sql = connection.cursor()
+    sql.execute("SELECT COUNT(*) FROM COMPTE WHERE pseudonyme = ? AND mot_de_passe = ?", (pseudo, mdp))
+    result = sql.fetchone()
+    if result[0] == 0:  # Si le pseudonyme ou le mot de passe est incorrect
+        pseudo = None
+        mdp = None
+        return False
+    return True
