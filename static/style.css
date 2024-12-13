@@ -283,6 +283,8 @@ a{
 #login-arcade{
     background-image: none;
 }
+
+
 @keyframes textColorAnimation {
     0% {
         color: white; /* Start color */

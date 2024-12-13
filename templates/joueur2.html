@@ -10,22 +10,63 @@
     <title>Karting</title>
 </head>
 <body>
-    <div class="arcade" id="jouer">
+    <div class="arcade" id="login-arcade">
         <h1 class="title"> Rapberry Kart </h1>
-        <div id="jouer1 et 2">
+        <div id="jouer1-et-2">
             <h2>joueur 1</h2>
             <div class="joueur">
-                <img class="kart" src="">
+                <img class="kart" src="{{ url_for('static', filename='images/red kart.png') }}">
+                <p>{{pseudo}}</p>
             </div>
-
+        
             <h2>joueur 2</h2>
             <div class="joueur">
+                <p class="error-message">{{error}}</p>
+                <img class="kart" src="{{ url_for('static', filename='images/blue kart.png') }}">
+                <button id="player2-login-btn">Log In</button>
+                <button id="player2-signup-btn">Sign Up</button>
 
+                <!-- Hidden login form -->
+                <form id="player2-login-form" method="POST" action="{{ url_for('player2_login') }}" style="display: none;">
+                    <input type="text" name="username" placeholder="Pseudo">
+                    <input type="password" name="password" placeholder="Mot de passe">
+                    <button type="submit">Log In</button>
+                </form>
+
+                <!-- Hidden signup form -->
+                <form id="player2-signup-form" method="POST" action="{{ url_for('player2_signup') }}" style="display: none;">
+                    <input type="text" name="new_username" placeholder="Nouveau pseudo">
+                    <input type="password" name="new_password" placeholder="Nouveau MDP">
+                    <button type="submit">Sign Up</button>
+                </form>
             </div>
         </div>
-        <a class="back" href="{{url_for('joueur')}}"><- Retour </a>
+        <a class="back" href="{{url_for('jouer')}}"><- Retour </a>
 
-    </div>
+        </div>
 
+        <script>
+            // Get the buttons and forms
+            const loginBtn = document.getElementById("player2-login-btn");
+            const signupBtn = document.getElementById("player2-signup-btn");
+            const loginForm = document.getElementById("player2-login-form");
+            const signupForm = document.getElementById("player2-signup-form");
+          
+            // Event listener for Login button
+            loginBtn.addEventListener("click", () => {
+              // Toggle visibility
+              loginForm.style.display = loginForm.style.display === "none" ? "block" : "none";
+              signupForm.style.display = "none"; // Hide signup form
+            });
+          
+            // Event listener for Sign Up button
+            signupBtn.addEventListener("click", () => {
+              // Toggle visibility
+              signupForm.style.display = signupForm.style.display === "none" ? "block" : "none";
+              loginForm.style.display = "none"; // Hide login form
+            });
+          </script>
+                 
 </body>
+
 </html>

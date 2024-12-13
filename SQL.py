@@ -30,6 +30,7 @@ def create_account(username, password):
     inser_compte = "INSERT INTO COMPTE (pseudonyme, mot_de_passe) VALUES (?, ?)"
     sql.execute(inser_compte, (username, password))
     connection.commit()
+    return "Compte créé avec succès"
 
 def check_account(username, password):
     global pseudo, mdp, meilleur_temps, position
