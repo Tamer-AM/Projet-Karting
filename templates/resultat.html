@@ -10,17 +10,21 @@
     <title>Karting</title>
 </head>
 <body>
-    <div class="arcade" id="jouer">
-        <h1 class="animated-text" > Raspberry Kart <span id="rasp">By Rasp&Rocket</span></h1>
-        <div class="options" id="player-select">
-            <ul>
-                <li><a href="{{url_for('play_game')}}"> 1 Joueur</a> </li>
-                <li><a href="{{url_for('joueur2')}}">2 Joueurs </a></li>
-              </ul>
-        </div>
-        <a class="back" href="{{url_for('index')}}"><- Retour </a>
+    <div class="arcade" id="login-arcade">
+        <h1 class="animated-text title" > Raspberry Kart </h1>
+            <div class="result-container">
+             <h2 id="result-title"> Résultat du Jeu </h2>
+             <h2>votre score:  <span class="score">{{score}} secondes </span></h2>
+             <h3> {{msg}}</h3>
+            </div>
+
+        
+        <a class="back" href="{{url_for('jouer')}}"><- Retour </a>
+
 
     </div>
 
+                 
 </body>
+
 </html>

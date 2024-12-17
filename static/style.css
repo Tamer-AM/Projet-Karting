@@ -29,14 +29,23 @@ body {
     background-position: right;
     background-position-y: 80%;
     background-clip: padding-box;
+    overflow-y: auto;
     animation: bgColorAnimation 2s infinite ease-in-out;
 }
 
 h1{
     color:white;
     font-family: "Jersey 10";
-    font-size: 70px;
+    font-size: 100px;
     animation: textColorAnimation 1s infinite ease-in-out;
+    text-align:center;
+}
+.title{
+    position:absolute;
+    margin-bottom:3%;
+}
+#rasp{
+    font-size: 0.3em;
 }
 
 .options {
@@ -80,6 +89,7 @@ a{
     transform: scale(1.1);
 }
 
+
 #jouer{
     background-image: url("images/blue_karting_guy.png");
     background-position: left;
@@ -98,6 +108,9 @@ a{
     left: 15%;   /* Adjust distance from left */
     cursor: pointer;
     font-size: 58px;
+}
+.back:hover{
+    color: green;
 }
 
 .infos {
@@ -165,9 +178,17 @@ a{
     left: 3%;   /* Adjust distance from left */
     cursor: pointer;
     font-size: 58px;
-    color: #bfbfbf;
+    color:white;
+}
+.back2:hover{
+    color:green;
 }
 
+#b2j2{
+    position:contain;
+    margin-left: 8%;
+    margin-top: 4%;
+}
 
 .additional-info {
     display: none; /* Initially hides the additional info */
@@ -276,12 +297,129 @@ a{
 /* Error Message Styling */
 .error-message {
     color: red;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 10px;
 }
 
 #login-arcade{
     background-image: none;
+}
+
+
+.joueur {
+    display: flex;
+    max-width: 180px;
+    flex-grow: 0; /* Prevent items from stretching */
+    flex-direction: column;
+    align-items: center; /* Center-align content */
+    text-align: center;
+    padding: 10px;
+    margin-top: 8%;
+}
+
+.joueur h2{
+    animation: optionsAnimation 1s infinite ease-in-out;
+}
+
+#optionel{
+    animation: none;
+    font-size: 0.3em;
+}
+#j1{
+    margin-right: 10%;    
+}
+
+#j2{
+    margin-left: 10%;    
+}
+
+.buttons{
+    flex-direction: row;
+}
+
+.buttons button{
+    background-color:rgb(220, 40, 40);
+    color:white;
+    font-family: "Jersey 10";
+}
+.buttons button:hover{
+    background-color:darkred;
+}
+
+#lancer {
+    position: absolute;  
+    bottom: 10%;  
+    left: 50%;  
+    transform: translateX(-50%);  
+    height: auto;  
+    width: auto;  
+    background-color: green;
+    font-family: "Jersey 10";
+    font-size: 40px;
+    color: white;
+}
+
+#lancer:hover {
+    background-color: #004d00;  
+}
+
+.p1{
+    color:#f80505;
+}
+
+#p2{
+    color:#009dff;
+}
+
+.logout{
+    margin-left:70%;
+    margin-top:6%;
+    position:absolute;
+}
+.logout:hover{
+    color: red;
+    transform: scale(1.001);
+    
+}
+.logoutp2{
+    background-color:darkred;
+    color:white;
+    font-family: "Jersey 10";
+    font-size: 30px;
+    
+
+}
+
+
+.result-container{
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+}
+
+.score{
+    color:yellow;
+    font-size:3rem;
+}
+
+.rang{
+    color:rgb(84, 193, 230);
+    font-size:3rem;
+    text-align: center;
+}
+
+.username{
+    color: red;
+    text-align:center;
+
+}
+.biographie p{
+    text-align:center;
+}
+.biographie{
+    list-style-type :none;
 }
 
 

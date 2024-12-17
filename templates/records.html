@@ -24,20 +24,30 @@
         </div>
         <div class="infos">
             <a class="back2" href="{{url_for('index')}}"><- Retour </a>
-            <h1 class="infos-title"> Informations </h1>
-            <div class="infos-container">
-            <div class="infos-elem" id="auteurs">
-            <h2> Auteurs </h2>
+            <h1 class="infos-title"> Records </h1>
+            <div class="records-container" >
+                <br>
+            <h2 class="username"> {{username}} </h2>
             
-            <ul>
-                <li class="auteurs-li">Tamer AL MASRI <span class="additional-info"> (Numéro étudiant: 21412678)</span></li> 
-                <li class="auteurs-li">Antoine RENAUD <span class="additional-info"> (Numéro étudiant: 21408429)</span></li>
-                <li class="auteurs-li">Yanis KHELOUFI <span class="additional-info"> (Numéro étudiant: 21404398)</span></li>
+            
+            <ul class="biographie">
+                <li ><p>Votre Meilleur Temps: <span class="score">{{score}} secondes </span> </p></li> 
+                <li class="rang"><p>Votre rang: {{rang}}</p></li>
             </ul>
-        </div>
-        <div class="infos-elem" id="sources">
-            <h2 class="sources"> Sources </h2>
-        </div>
+            </div>
+            
+        
+            <h2>top 5:</h2>
+            <ol>
+                <li>{{user1}},  {{score1}} secondes</li> 
+                <li>{{user2}},  {{score2}} secondes</li>
+                <li>{{user3}},  {{score3}} secondes</li>
+                <li>{{user4}},  {{score4}} secondes</li>
+                <li>{{user5}},  {{score5}} secondes</li>
+            </ol>
+            
+            </div>
+
         </div>
         </div>
         </div>

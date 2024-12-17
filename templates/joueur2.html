@@ -11,37 +11,48 @@
 </head>
 <body>
     <div class="arcade" id="login-arcade">
-        <h1 class="title"> Rapberry Kart </h1>
-        <div id="jouer1-et-2">
-            <h2>joueur 1</h2>
-            <div class="joueur">
+        <h1 class="animated-text title" > Raspberry Kart </h1>
+            
+            <div class="joueur" id="j1">
+                <h2 class="">joueur 1</h2>
                 <img class="kart" src="{{ url_for('static', filename='images/red kart.png') }}">
-                <p>{{pseudo}}</p>
+                <p class="p1">{{pseudo}}</p>
             </div>
         
-            <h2>joueur 2</h2>
-            <div class="joueur">
-                <p class="error-message">{{error}}</p>
+            
+            <div class="joueur" id="j2">
+                <h2>joueur 2</h2>
                 <img class="kart" src="{{ url_for('static', filename='images/blue kart.png') }}">
-                <button id="player2-login-btn">Log In</button>
-                <button id="player2-signup-btn">Sign Up</button>
+                {% if session['player2_username'] %}
+                    <p id="p2">{{ session['player2_username'] }}</p>
+                    <form action="{{ url_for('player2_logout') }}" method="POST">
+                        <button class="logoutp2" type="submit">Log Out</button>
+                    </form>
+                {% else %}
+                <p class="error-message">{{error}}</p>
+                <div class="buttons">
+                    <button id="player2-login-btn">Log In</button>
+                    <button id="player2-signup-btn">Sign Up</button>
+                </div>
 
                 <!-- Hidden login form -->
-                <form id="player2-login-form" method="POST" action="{{ url_for('player2_login') }}" style="display: none;">
+                <form class="signup-form-box" id="player2-login-form" method="POST" action="{{ url_for('player2_login') }}" style="display: none;">
                     <input type="text" name="username" placeholder="Pseudo">
                     <input type="password" name="password" placeholder="Mot de passe">
-                    <button type="submit">Log In</button>
+                    <input class="p2submit" type="submit" value="Login">
                 </form>
 
                 <!-- Hidden signup form -->
-                <form id="player2-signup-form" method="POST" action="{{ url_for('player2_signup') }}" style="display: none;">
+                <form class="signup-form-box" id="player2-signup-form" method="POST" action="{{ url_for('player2_signup') }}" style="display: none;">
                     <input type="text" name="new_username" placeholder="Nouveau pseudo">
                     <input type="password" name="new_password" placeholder="Nouveau MDP">
-                    <button type="submit">Sign Up</button>
+                    <input class="p2submit" type="submit" value="Sign up">
                 </form>
+                {% endif %}
             </div>
-        </div>
-        <a class="back" href="{{url_for('jouer')}}"><- Retour </a>
+        
+        <a class="back2" id="b2j2" href="{{url_for('jouer')}}"><- Retour </a>
+        <button id="lancer"> Lancer! </button>
 
         </div>
 
