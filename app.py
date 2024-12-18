@@ -93,7 +93,7 @@ def player2_login():
             session['player2_username'] = username
             return redirect(url_for('joueur2'))
         else:
-            error = "Player 2 username or password incorrect"
+            error = "Jouer 2 pseudonyme ou mot de passe incorrect"
             return render_template('joueur2.html', error=error)
 
 @app.route('/player2_signup', methods=['GET', 'POST'])
@@ -177,6 +177,6 @@ def play_game_p2():
         process = subprocess.Popen(['python', 'game_files/karting v2.2.py'])
         while process.poll() is None:
             time.sleep(1) 
-        return render_template('jouer.html')
+        return render_template('joueur2.html')
     except Exception as e:
         return f"Error occurred while starting the game: {e}"

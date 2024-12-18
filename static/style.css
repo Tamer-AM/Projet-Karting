@@ -27,10 +27,11 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: right;
-    background-position-y: 80%;
+    background-position-y:55%;
     background-clip: padding-box;
     overflow-y: auto;
     animation: bgColorAnimation 2s infinite ease-in-out;
+    background-size: 40%;
 }
 
 h1{
@@ -93,7 +94,7 @@ a{
 #jouer{
     background-image: url("images/blue_karting_guy.png");
     background-position: left;
-    background-position-y: 65%;
+    background-position-y: 55%;
 }
 
 #player-select{
@@ -127,6 +128,14 @@ a{
     overflow: auto;
     left: 50%;
     transform: translateX(-50%);
+}
+
+#player2-login-form{
+    margin-top:10%;
+}
+
+#player2-signup-form{
+    margin-top:10%;
 }
 
 .infos h1 {
@@ -202,7 +211,7 @@ a{
 }
 
 .auteurs-li:hover{
-    color: aqua;
+    color:royalblue;
     transform: scale(1.05);
     transition: ease-in-out;
 }
@@ -210,12 +219,17 @@ a{
     display: inline; /* Makes the additional info visible */
     opacity: 1; /* Ensures it fades in smoothly */
 }
+.auteurs-li{
+    color:aqua;
+}
+
 
 .login-form {
     position: absolute;
     top: 30%;
     left: 10%;
     width: 30%;
+    height:40%;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     color: white;
@@ -224,7 +238,7 @@ a{
 }
 
 .login-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 15px;
     font-family: "Jersey 10";
 }
@@ -232,11 +246,13 @@ a{
 .login-form-box input[type="text"],
 .login-form-box input[type="password"] {
     width: 100%;
+    height:3vh;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 5px;
     border: none;
     font-family: "Jersey 10";
+    font-size: 1.9rem;
 }
 
 .login-form-box input[type="submit"] {
@@ -248,6 +264,7 @@ a{
     color: white;
     font-family: "Jersey 10";
     cursor: pointer;
+    font-size: 1.9rem;
 }
 
 .login-form-box input[type="submit"]:hover {
@@ -260,6 +277,7 @@ a{
     top: 30%;
     right: 10%;
     width: 30%; 
+    height: 40%;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
@@ -271,6 +289,7 @@ a{
     font-size: 1.5rem;
     margin-bottom: 15px;
     font-family: "Jersey 10";
+    font-size: 2rem;
 }
 
 .signup-form-box input[type="text"],
@@ -281,6 +300,8 @@ a{
     border-radius: 5px;
     border: none;
     font-family: "Jersey 10";
+    font-size: 1.9rem;
+    height: 3vh;
 }
 
 .signup-form-box input[type="submit"] {
@@ -292,10 +313,12 @@ a{
     color: white;
     font-family: "Jersey 10";
     cursor: pointer;
+    font-size: 1.9rem;
 }
 
 .signup-form-box input[type="submit"]:hover {
     background: darkred;
+    font-size: 1.9rem;
 }
 
 /* Error Message Styling */
@@ -318,7 +341,8 @@ a{
     align-items: center; /* Center-align content */
     text-align: center;
     padding: 10px;
-    margin-top: 8%;
+    margin-top: 18%;
+
 }
 
 .joueur h2{
@@ -345,6 +369,7 @@ a{
     background-color:rgb(220, 40, 40);
     color:white;
     font-family: "Jersey 10";
+    font-size: 1.8rem;
 }
 .buttons button:hover{
     background-color:darkred;
@@ -359,8 +384,13 @@ a{
     width: auto;  
     background-color: green;
     font-family: "Jersey 10";
-    font-size: 40px;
+    font-size: 50px;
     color: white;
+    border-color:black;
+    border-radius: 10px;
+    border-width: 10px;
+    border:solid #001a00;
+    padding: 5px;
 }
 
 #lancer:hover {
@@ -368,11 +398,11 @@ a{
 }
 
 .p1{
-    color:#f80505;
+    color:#009dff
 }
 
 #p2{
-    color:#009dff;
+    color:#f80505;
 }
 
 .logout{

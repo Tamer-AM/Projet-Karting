@@ -15,14 +15,14 @@
             
             <div class="joueur" id="j1">
                 <h2 class="">joueur 1</h2>
-                <img class="kart" src="{{ url_for('static', filename='images/red kart.png') }}">
+                <img class="kart" src="{{ url_for('static', filename='images/blue kart.png') }}">
                 <p class="p1">{{pseudo}}</p>
             </div>
         
             
             <div class="joueur" id="j2">
                 <h2>joueur 2</h2>
-                <img class="kart" src="{{ url_for('static', filename='images/blue kart.png') }}">
+                <img class="kart" src="{{ url_for('static', filename='images/red kart.png') }}">
                 {% if session['player2_username'] %}
                     <p id="p2">{{ session['player2_username'] }}</p>
                     <form action="{{ url_for('player2_logout') }}" method="POST">
@@ -50,6 +50,8 @@
                 </form>
                 {% endif %}
             </div>
+
+            
         
         <a class="back2" id="b2j2" href="{{url_for('jouer')}}"><- Retour </a>
         <a id="lancer" href="{{url_for('play_game_p2')}}"> Lancer! </a>
@@ -75,6 +77,9 @@
               // Toggle visibility
               signupForm.style.display = signupForm.style.display === "none" ? "block" : "none";
               loginForm.style.display = "none"; // Hide login form
+            });
+            document.getElementById('lancer').addEventListener('click', function() {
+             alert("Information importante : \n- la kart bleue joue avec le capteur de mouvement \n- la kart rouge joue avec le clavier (touches WASD) \n \n les temps et les rangs ne sont pas enregistrés dans la version 2 joueurs.\nChallengez-vous et jouez pour le plaisir !");
             });
           </script>
                  

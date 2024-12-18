@@ -1,7 +1,7 @@
 import pygame
 import socket
 import sys
-
+import time 
 
 DEVICE_ADRESS = 0x53
 POWER_CTL = 0x2D
@@ -458,6 +458,7 @@ def main(frame_count1, frame_count2):
              SCREEN.blit(texte, (605,350))
              start1 = False
              if kart2.tour == 2:
+                time.sleep(4)
                 sys.exit(0)
         else:
              frame_count1 += 1
@@ -469,6 +470,7 @@ def main(frame_count1, frame_count2):
              SCREEN.blit(texte, (605,380))
              start2 = False
              if kart1.tour == 2:
+                time.sleep(4)
                 sys.exit(0)
         else:
              frame_count2 += 1
