@@ -29,13 +29,29 @@
                 <br>
             <h2 class="username"> {{username}} </h2>
             
-            
+            {% if score %}
             <ul class="biographie">
                 <li ><p>Votre Meilleur Temps: <span class="score">{{score}} secondes </span> </p></li> 
                 <li class="rang"><p>Votre rang: {{rang}}</p></li>
             </ul>
             </div>
-            
+            {% else %}
+            <p id="msg-pasdescore">Veuillez jouer à un jeu pour accéder à votre meilleur temps et à votre rang.</p>
+
+            {% endif %}
+            <br>
+
+            {% if session['player2_username'] %}
+            <h2 class="username" id="p2_username"> {{session['player2_username']}} </h2>
+            {% if scorep2 %}
+            <ul class="biographie">
+                <li ><p>Votre Meilleur Temps: <span class="score">{{scorep2}} secondes </span> </p></li> 
+                <li class="rang"><p>Votre rang: {{rangp2}}</p></li>
+            </ul>
+            {% else %}
+            <p id="msg-pasdescore">Veuillez jouer à un jeu pour accéder à votre meilleur temps et à votre rang.</p>
+            {% endif %}
+            {% endif %}
         
             <h2>top 5:</h2>
             <ol>

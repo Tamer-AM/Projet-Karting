@@ -1,6 +1,7 @@
 import pygame
 import socket
 import asyncio 
+import sys
 
 
 DEVICE_ADRESS = 0x53
@@ -365,6 +366,7 @@ async def main(frame_count):
              texte = police.render(str('Chrono: {} secondes.'.format(kart1.temps)), False, (0, 0, 0))
              SCREEN.blit(texte, (650,350))
              start = False
+             sys.exit(0)
         else:
              frame_count += 1
          

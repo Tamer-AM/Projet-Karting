@@ -11,8 +11,8 @@ pygame.font.init()
 
 police = pygame.font.SysFont('Comic Sans MS', 40)
 
-WIDTH = 1980
-HEIGHT = 1080
+WIDTH = 1600
+HEIGHT = 900
 SCREEN = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption('Raspberry Kart')
 

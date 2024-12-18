@@ -133,7 +133,7 @@ def play_game():
         while process.poll() is None:
             time.sleep(0.1)  # Check every 0.1 second for better responsiveness
         if process.returncode == 0:
-            elapsed_time = time.perf_counter() - start_time
+            elapsed_time = time.perf_counter() - start_time - 3
             formatted_time = "{:.3f}".format(elapsed_time)  # Format to 3 decimal places
             msg = update_score_if_record(session['username'], elapsed_time)  # Use float, not string for comparison
             return render_template('resultat.html', score=formatted_time, msg=msg)
@@ -145,14 +145,38 @@ def play_game():
 @app.route('/records')
 def records():
     global username
-    username = session['username'] 
-    score_user = "{:.3f}".format(get_score(username)[0])
-    rang_user = get_score(username)[1]
+    username = session['username']
+    username2 = session.get('player2_username')
+    if not(get_score(username)):
+        score_user,rang_user = None,None
+
+    else:
+        score_user = "{:.3f}".format(get_score(username)[0])
+        rang_user = get_score(username)[1]
+
+    if username2:
+        if not(get_score(username2)):
+            score_user2,rang_user2 = None,None
+        else:
+            score_user2 = "{:.3f}".format(get_score(username2)[0])
+            rang_user2 = get_score(username2)[1]
+    else:
+        score_user2,rang_user2 = None,None
     top5 = get_top_5()
     username1, score1 = top5[0][0], "{:.3f}".format(top5[0][1])
     username2, score2 = top5[1][0], "{:.3f}".format(top5[1][1])
     username3, score3 = top5[2][0], "{:.3f}".format(top5[2][1])
     username4, score4 = top5[3][0], "{:.3f}".format(top5[3][1])
     username5, score5 = top5[4][0], "{:.3f}".format(top5[4][1])
-    return render_template('records.html', username=username, score=score_user, rang=rang_user, user1=username1, score1 = score1, user2=username2, score2 = score2, user3=username3, score3 = score3, user4=username4, score4 = score4, user5=username5, score5 = score5)
+    return render_template('records.html', username=username, score=score_user, rang=rang_user, scorep2=score_user2, rangp2=rang_user2,user1=username1, score1 = score1, user2=username2, score2 = score2, user3=username3, score3 = score3, user4=username4, score4 = score4, user5=username5, score5 = score5)
 
+
+@app.route('/playp2')
+def play_game_p2():
+    try:
+        process = subprocess.Popen(['python', 'game_files/karting v2.2.py'])
+        while process.poll() is None:
+            time.sleep(1) 
+        return render_template('jouer.html')
+    except Exception as e:
+        return f"Error occurred while starting the game: {e}"

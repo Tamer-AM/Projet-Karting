@@ -166,11 +166,14 @@ a{
 }
 
 #sources{
-    margin-right:7%;
+    margin-right:0%;
+    margin-left:20%;
 }
 
 #auteurs{
     margin-left:7%;
+    width:550px;
+    
 }
 
 .back2{
@@ -195,6 +198,7 @@ a{
     color: #ffcc00; /* Golden color for the additional info */
     margin-left: 10px;
     transition: opacity 0.3s ease-in-out;
+    font-size: 1.8rem;
 }
 
 .auteurs-li:hover{
@@ -405,13 +409,13 @@ a{
 }
 
 .rang{
-    color:rgb(84, 193, 230);
+    color:#ffad33;
     font-size:3rem;
     text-align: center;
 }
 
 .username{
-    color: red;
+    color: rgb(84, 193, 230);
     text-align:center;
 
 }
@@ -421,7 +425,13 @@ a{
 .biographie{
     list-style-type :none;
 }
+#msg-pasdescore{
+    text-align:center;
+}
 
+#p2_username{
+    color: red;
+}
 
 @keyframes textColorAnimation {
     0% {

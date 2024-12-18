@@ -95,7 +95,7 @@ def get_score(username):
                 rank = i+1
                 break
         return user_score, rank
-    return "Lancer un jeu pour etre classer dans la base de donne"
+    return False
 
 
 def get_top_5():
