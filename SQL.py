@@ -1,7 +1,7 @@
 import sqlite3
 from flask import g
 
-db_file = "C:/Users/Tamer/OneDrive/Desktop/Karting/DB.db"
+db_file = "DB.db"
 
 # Variables globales pour stocker le pseudonyme, le mot de passe et le temps
 pseudo = None
