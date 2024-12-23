@@ -26,6 +26,9 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind((UDP_IP, UDP_PORT))
 
 def read_acceleration(frame_count):
+    """
+    Recoit les données de l'accélérometre connecté au raspberry pi.
+    """
     if frame_count < 150:  # Pendant le décompte (3, 2, 1, GO)
         return
     try:
@@ -42,6 +45,9 @@ def read_acceleration(frame_count):
         return 0, 0
 
 class Checkpoint():
+    """
+    Classe pour les checkpoints sur le circuit.
+    """
     def __init__(self, x, y, longueur, largeur):
         self.x = x
         self.y = y
@@ -58,6 +64,9 @@ class Checkpoint():
     
     
     def affichage(self,frame_count):
+        """
+        Affichage des checkpoints.
+        """
         if self.etat == 0:
             #○ pygame.draw.rect(SCREEN, (0,0,255), self.rect)
             pygame.draw.rect(SCREEN, (0,0,0), self.indicateur)
@@ -77,6 +86,9 @@ class Checkpoint():
 
 
 class Obstacle():
+    """
+    Classe pour les obstacles.
+    """
     def __init__(self, x, y, longueur, largeur):
         self.x = x
         self.y = y
@@ -87,10 +99,16 @@ class Obstacle():
         self.vecteur_v = pygame.math.Vector2(self.y, self.y + largeur)
     
     def affichage(self):
+        """
+        Affichage des obstacles pour les test.
+        """
         pygame.draw.rect(SCREEN, (255,0,0), self.rect)
 
 
 class Hors_piste():
+    """
+    Classe pour les surfaces hors piste.
+    """
     def __init__(self, x, y, longueur, largeur):
         self.x = x
         self.y = y
@@ -99,10 +117,16 @@ class Hors_piste():
         self.rect = pygame.Rect(self.x, self.y, self.longueur, self.largeur)
     
     def affichage(self):
+        """
+        Affichage des surfaces hors piste, utilisé pour les tests.
+        """
         pygame.draw.rect(SCREEN, (0,255,0), self.rect)
         
 
 class Kart():
+    """
+    Classe pour les 2 karts des 2 joueurs.
+    """
     def __init__(self, joueur, x ,y):
         self.joueur = joueur
         self.x = x
@@ -130,13 +154,22 @@ class Kart():
         self.temps = 0
 
     def affichage(self):
+        """
+        Affichages du kart sur l'écran
+        """
         #pygame.draw.rect(SCREEN, (255,255,255), self.rect)
         SCREEN.blit(self.image, self.rect)
 
     def mouvement(self):
+        """
+        Actualisation des coordonnées du kart.
+        """
         self.rect.center += self.vecteur*self.vitesse
     
     def accelerometre(self,frame_count):
+        """
+        Déplace le kart en fonction des coordonnées des l'accéléromètre.
+        """
         y, x = read_acceleration(frame_count)
         if 300 > y > 25:
             # gauche
@@ -155,6 +188,9 @@ class Kart():
             self.vitesse = max(0, self.vitesse)
 
     def tourner(self,x, angle):
+        """
+        Tourne le kart d'un certain angle.
+        """
         if abs(angle) > 60:
             self.vitesse *= 0.6
         elif abs(angle) > 30:
@@ -170,6 +206,9 @@ class Kart():
         self.rect = self.image.get_rect(center = cord)
 
     def accelerer(self, x):
+        """
+        Gère le systeme d'accélération du kart.
+        """
         if self.vitesse > 3 and self.hp:
             self.vitesse = 3
         if self.vitesse < -3 and self.hp:
@@ -185,12 +224,19 @@ class Kart():
                 self.vitesse -= 0.6
 
     def freinage(self):
+        """
+        Gère le systeme de freinage du kart.
+        """
         if self.vitesse > 0:
             self.vitesse -= 0.2
         else:
             self.vitesse += 0.2
 
     def collision_obstacle(self, obs):
+        """
+        Gere les collisions avec les obstacles et le kart adverse. Le kart clignote et
+        la vitesse du kart diminue pendant un instant.
+        """
         for obstacle in obs:
             if self.rect.clipline((obstacle.x, obstacle.y), (obstacle.x, obstacle.y + obstacle.largeur)):
                 # gauche vers droite
@@ -235,6 +281,9 @@ class Kart():
 
 
     def clignotant(self):
+        """
+        Gère les clignotements du kart suite a une collision.
+        """
         if self.clignoter[0]:
             self.vitesse_max = 6
             self.vitesse_min = -6
@@ -243,6 +292,9 @@ class Kart():
                 self.clignoter = [False, 0]
 
     def collision_hors_piste(self, hors_piste):
+        """
+        Gère la vitesse du kart lorsqu'il est sur du hors piste.
+        """
         self.vitesse_max = 11
         self.vitesse_min = -11
         self.hp = False
@@ -252,6 +304,9 @@ class Kart():
                 self.hp = True
 
     def collision_checkpoint(self, cp):
+        """
+        Gère la validation des checkpoints et des tours sur le circuit.
+        """
         if self.rect.colliderect(cp[0].rect):
             cp[0].etat = 1
         if self.rect.colliderect(cp[-1].rect):
@@ -267,6 +322,9 @@ class Kart():
             
 
 def affichage_elements(m, hp,check, frame_count):
+    """
+    Affiche sur l'écran les différents éléments du jeu, utilisé en partie pour les tests.
+    """
     SCREEN.blit(circuit, (0,0))
     #for hors_piste in hp:
     #    hors_piste.affichage()
@@ -347,6 +405,9 @@ check = [cp1, cp2, cp3,cp4, cp5, cp6]
 
 
 async def main(frame_count):
+    """
+    Boucle principale du jeu
+    """
     running = True
     start = False
     while running:
